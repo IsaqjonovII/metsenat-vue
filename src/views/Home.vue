@@ -5,6 +5,10 @@
 <template>
   <main>
     <Header />
-    <h1>helloo dudee</h1>
+    
+    <div>
+
+    </div>
+    
   </main>
 </template>

@@ -8,23 +8,26 @@ import Logo from "@/components/Logo.vue";
 
 const router = useRouter();
 const user = useUserStore();
-const userForm = reactive({ username: "",password: "" });
+const userForm = reactive({ username: "", password: "" });
 
 function handleSubmit() {
-  axios.post("https://club.metsenat.uz/api/v1/auth/login/", userForm)
-      .then(({ data }) => {
-        user.logIn(data.access);
-        router.push({ name: "home" })
-        alert("Auth successful");
-      })
+  axios
+    .post("https://club.metsenat.uz/api/v1/auth/login/", userForm)
+    .then(({ data }) => {
+      user.logIn({
+        name: userForm.username,
+        token: data.access,
+      });
+      router.push({ name: "home" });
+      alert("Auth successful");
+    });
 }
-
 </script>
 <template>
   <main class="h-screen center">
     <div class="w-full max-w-96 h-[550px] flex flex-col items-center gap-8">
       <div>
-        <Logo />
+        <Logo :is-club-logo="true" />
       </div>
       <div
         class="w-full p-6 shadow-normal bg-white rounded-lg border border-gray-500"

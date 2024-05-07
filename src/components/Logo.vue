@@ -1,3 +1,9 @@
+<script setup>
+defineProps({
+  isClubLogo: Boolean,
+});
+</script>
+
 <template>
   <div class="flex-between w-fit gap-2">
     <svg
@@ -24,7 +30,12 @@
         fill="#C7DAFF"
       />
     </svg>
-    <span class="font-bold text-black text-2xl">METSENAT</span>
-    <span class="py-1 px-2 bg-red rounded-lg text-white text-xs">CLUB</span>
+    <div>
+      <span class="font-bold text-black text-2xl">
+        METSENAT
+      </span>
+      <span class="text-green text-xs block leading-none" v-if="!isClubLogo">PRO</span>
+    </div>
+    <span class="py-1 px-2 bg-red rounded-lg text-white text-xs" v-if="isClubLogo">CLUB</span>
   </div>
 </template>
