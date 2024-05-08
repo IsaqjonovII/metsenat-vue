@@ -14,7 +14,10 @@ export const useUserStore = defineStore("user", () => {
     user.token = userdata.token;
     localStorage.setItem("user", JSON.stringify(user));
   }
-  const logOut = () => (user.token = "");
+  function logOut() {
+    localStorage.removeItem("user");
+    location.reload();
+  }
 
   return { user, logIn, logOut };
 });

@@ -1,8 +1,11 @@
 <script setup>
+import { ref } from "vue";
+
 import Logo from "@/components/Logo.vue";
 import { useUserStore } from "@/stores/user";
 
-const { user } = useUserStore();
+const { user, logOut } = useUserStore();
+const activeBtnId = ref(1);
 </script>
 <template>
   <header class="bg-white px-4">
@@ -20,7 +23,7 @@ const { user } = useUserStore();
             <img src="/images/user.svg" alt="user icon" />
           </button>
 
-          <button>
+          <button @click="logOut">
             <img src="/images/logout.svg" alt="logout icon" />
           </button>
         </div>
@@ -29,20 +32,23 @@ const { user } = useUserStore();
     <div class="container flex-between py-4">
       <div class="w-full">
         <button
+          @click="activeBtnId = 0"
           class="w-full max-w-60 py-2 text-blue rounded-l-lg border border-blue"
-          :class="false ? 'bg-blue text-white' : 'bg-transparent'"
+          :class="activeBtnId === 0 ? 'bg-blue text-white' : 'bg-transparent'"
         >
           DASHBOARD
         </button>
         <button
+          @click="activeBtnId = 1"
           class="w-full max-w-60 py-2 text-blue border border-blue"
-          :class="true ? 'bg-blue text-white' : 'bg-transparent'"
+          :class="activeBtnId === 1 ? 'bg-blue text-white' : 'bg-transparent'"
         >
           HOMIYLAR
         </button>
         <button
+          @click="activeBtnId = 2"
           class="w-full max-w-60 py-2 text-blue rounded-r-lg border border-blue"
-          :class="false ? 'bg-blue text-white' : 'bg-transparent'"
+          :class="activeBtnId === 2 ? 'bg-blue text-white' : 'bg-transparent'"
         >
           TALABALAR
         </button>
