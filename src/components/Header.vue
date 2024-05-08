@@ -29,26 +29,26 @@ const { user } = useUserStore();
     <div class="container flex-between py-4">
       <div class="w-full">
         <button
-          class="w-full max-w-60 py-2 text-white rounded-l-lg border border-blue"
-          :class="false ? 'bg-blue' : 'bg-transparent text-blue'"
+          class="w-full max-w-60 py-2 text-blue rounded-l-lg border border-blue"
+          :class="false ? 'bg-blue text-white' : 'bg-transparent'"
         >
           DASHBOARD
         </button>
         <button
-          class="w-full max-w-60 py-2 text-white border border-blue"
-          :class="true ? 'bg-blue' : 'bg-transparent text-blue'"
+          class="w-full max-w-60 py-2 text-blue border border-blue"
+          :class="true ? 'bg-blue text-white' : 'bg-transparent'"
         >
           HOMIYLAR
         </button>
         <button
-          class="w-full max-w-60 py-2 text-white rounded-r-lg border border-blue"
-          :class="false ? 'bg-blue' : 'bg-transparent text-blue'"
+          class="w-full max-w-60 py-2 text-blue rounded-r-lg border border-blue"
+          :class="false ? 'bg-blue text-white' : 'bg-transparent'"
         >
           TALABALAR
         </button>
       </div>
 
-      <div class="flex-between gap-4">
+      <div class="flex justify-end gap-4 w-full">
         <div
           class="flex-between gap-2 border border-gray h-10 rounded-md px-2 bg-gray-300"
         >
